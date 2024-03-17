@@ -1,29 +1,18 @@
-name: CI/CD
+name: Docker Image CI
 
 on:
   push:
     branches: [ "*" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
+
   build:
 
     runs-on: ubuntu-latest
 
     steps:
-
       - uses: actions/checkout@v3
-      - name: Docker Login
-
-
-
-
-      - run: ./mvnw package
-
-
-
-
-
-
-
-
-    
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag rmatteitire:$(date +%s)

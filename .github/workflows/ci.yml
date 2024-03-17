@@ -9,18 +9,16 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-
     steps:
 
       - uses: actions/checkout@v3
       - name: Docker Login
 
 
-  package:
+
 
       - run: ./mvnw package
-      - name: Maven Package
+
 
 
 
